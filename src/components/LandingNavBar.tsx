@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
-export const NavBar = () => {
+export const LandingNavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
