@@ -29,7 +29,7 @@ export const LandingNavBar = () => {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger className="text-tdGreen-800 hover:text-tdGreen-600">Solutions</NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuContent className="bg-white">
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
@@ -60,7 +60,7 @@ export const LandingNavBar = () => {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger className="text-tdGreen-800 hover:text-tdGreen-600">Platform</NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuContent className="bg-white">
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px]">
                   <SolutionItem title="Azure Integration" href="#">
                     Enterprise-grade AI powered by Azure
@@ -72,14 +72,14 @@ export const LandingNavBar = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink className="text-tdGreen-800 hover:text-tdGreen-600 font-medium" href="#">
+              <Link to="#" className="flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-tdGreen-800 hover:text-tdGreen-600">
                 Why KnowAI
-              </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink className="text-tdGreen-800 hover:text-tdGreen-600 font-medium" href="#">
+              <Link to="#" className="flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-tdGreen-800 hover:text-tdGreen-600">
                 Resources
-              </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
