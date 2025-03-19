@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowAI - {% block title %}{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tdGreen: {
+                            50: '#f0f9f4',
+                            100: '#dcefe1',
+                            200: '#bae0c5',
+                            300: '#8fcca2',
+                            400: '#5fb37a',
+                            500: '#3e9659',
+                            600: '#2b7a44',
+                            700: '#235f37',
+                            800: '#1d4c2d',
+                            900: '#1a3f26',
+                        },
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                        'pulse': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(10px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        pulse: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '.5' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+    {% block styles %}{% endblock %}
+</head>
+<body class="bg-gray-50 min-h-screen">
+    {% block content %}{% endblock %}
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>

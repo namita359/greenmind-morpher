@@ -1,0 +1,442 @@
+
+{% extends "base.html" %}
+
+{% block title %}AI-Powered Document Intelligence{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <nav class="w-full py-4 px-6 flex items-center justify-between bg-white sticky top-0 z-50 shadow-sm">
+        <div class="flex items-center">
+            <span class="text-2xl font-semibold text-tdGreen-700">
+                Know<span class="text-tdGreen-500">AI</span>
+            </span>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+            <div class="relative group">
+                <button class="text-tdGreen-800 hover:text-tdGreen-600 font-medium">Solutions</button>
+                <div class="absolute left-0 mt-2 w-[600px] bg-white rounded-md shadow-lg p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="row-span-3">
+                            <a href="#" class="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-tdGreen-50 to-tdGreen-100 p-6 no-underline outline-none focus:shadow-md">
+                                <div class="mb-2 mt-4 text-lg font-medium text-tdGreen-900">
+                                    AI Assistant
+                                </div>
+                                <p class="text-sm leading-tight text-tdGreen-700">
+                                    Get instant answers from your organization's knowledge
+                                </p>
+                            </a>
+                        </div>
+                        <a href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-tdGreen-50 hover:text-tdGreen-700 focus:bg-tdGreen-50 focus:text-tdGreen-700">
+                            <div class="text-sm font-medium leading-none">Code Translation</div>
+                            <p class="text-sm leading-snug text-gray-500">
+                                Convert code between programming languages
+                            </p>
+                        </a>
+                        <a href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-tdGreen-50 hover:text-tdGreen-700 focus:bg-tdGreen-50 focus:text-tdGreen-700">
+                            <div class="text-sm font-medium leading-none">Document Intelligence</div>
+                            <p class="text-sm leading-snug text-gray-500">
+                                Extract insights from your documents
+                            </p>
+                        </a>
+                        <a href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-tdGreen-50 hover:text-tdGreen-700 focus:bg-tdGreen-50 focus:text-tdGreen-700">
+                            <div class="text-sm font-medium leading-none">Knowledge Management</div>
+                            <p class="text-sm leading-snug text-gray-500">
+                                Organize and make knowledge accessible
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative group">
+                <button class="text-tdGreen-800 hover:text-tdGreen-600 font-medium">Platform</button>
+                <div class="absolute left-0 mt-2 w-[400px] bg-white rounded-md shadow-lg p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <a href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-tdGreen-50 hover:text-tdGreen-700 focus:bg-tdGreen-50 focus:text-tdGreen-700">
+                        <div class="text-sm font-medium leading-none">Azure Integration</div>
+                        <p class="text-sm leading-snug text-gray-500">
+                            Enterprise-grade AI powered by Azure
+                        </p>
+                    </a>
+                    <a href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-tdGreen-50 hover:text-tdGreen-700 focus:bg-tdGreen-50 focus:text-tdGreen-700">
+                        <div class="text-sm font-medium leading-none">Security</div>
+                        <p class="text-sm leading-snug text-gray-500">
+                            Enterprise security and compliance
+                        </p>
+                    </a>
+                </div>
+            </div>
+            
+            <a href="#" class="text-tdGreen-800 hover:text-tdGreen-600 font-medium">Why KnowAI</a>
+            <a href="#" class="text-tdGreen-800 hover:text-tdGreen-600 font-medium">Resources</a>
+
+            <a href="{{ url_for('dashboard') }}" class="inline-flex items-center justify-center px-4 py-2 border border-tdGreen-600 text-tdGreen-700 rounded-md hover:bg-tdGreen-50">
+                Dashboard
+            </a>
+
+            <button class="bg-tdGreen-600 hover:bg-tdGreen-700 text-white px-4 py-2 rounded-md">Get Started</button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-tdGreen-800">
+                Menu
+            </button>
+            
+            <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-md p-4 z-50">
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-tdGreen-800 hover:text-tdGreen-600">Solutions</a></li>
+                    <li><a href="#" class="text-tdGreen-800 hover:text-tdGreen-600">Platform</a></li>
+                    <li><a href="#" class="text-tdGreen-800 hover:text-tdGreen-600">Why KnowAI</a></li>
+                    <li><a href="#" class="text-tdGreen-800 hover:text-tdGreen-600">Resources</a></li>
+                    <li>
+                        <a href="{{ url_for('dashboard') }}" class="block mb-2">
+                            <button class="w-full border border-tdGreen-600 text-tdGreen-700 bg-white hover:bg-tdGreen-50 px-4 py-2 rounded-md">
+                                Dashboard
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <button class="w-full bg-tdGreen-600 hover:bg-tdGreen-700 text-white px-4 py-2 rounded-md">Get Started</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-white to-tdGreen-50 py-16 md:py-20 overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-tdGreen-800 mb-6 leading-tight">
+                    Transform Your Documents into <span class="text-tdGreen-600">Intelligent Knowledge</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8">
+                    Unlock insights from your data with our AI-powered document intelligence platform.
+                    Extract, translate, and converse with your documents like never before.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button class="bg-tdGreen-600 hover:bg-tdGreen-700 text-white px-6 py-3 rounded-lg font-medium text-lg">
+                        Get Started Free
+                    </button>
+                    <button class="border border-tdGreen-600 text-tdGreen-700 hover:bg-tdGreen-50 px-6 py-3 rounded-lg font-medium text-lg">
+                        Book a Demo
+                    </button>
+                </div>
+            </div>
+            <div class="mt-12 flex justify-center">
+                <div class="relative w-full max-w-5xl rounded-xl shadow-2xl overflow-hidden">
+                    <img src="https://placehold.co/1200x600/f0f9f4/235f37?text=KnowAI+Dashboard" alt="KnowAI Dashboard" class="w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-tdGreen-800 mb-4">Powerful AI-Powered Features</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our platform leverages the power of Azure AI to provide you with state-of-the-art document intelligence capabilities.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-tdGreen-50 rounded-lg p-6 transition-all duration-300 hover:shadow-lg">
+                    <div class="bg-tdGreen-100 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-tdGreen-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-tdGreen-800 mb-2">Intelligent Document Processing</h3>
+                    <p class="text-gray-600">Extract insights and knowledge from any document format. Our AI understands context and meaning beyond simple OCR.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-tdGreen-50 rounded-lg p-6 transition-all duration-300 hover:shadow-lg">
+                    <div class="bg-tdGreen-100 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-tdGreen-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-tdGreen-800 mb-2">Conversational AI</h3>
+                    <p class="text-gray-600">Ask questions in natural language and get immediate answers from your documents. No more searching through pages of text.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-tdGreen-50 rounded-lg p-6 transition-all duration-300 hover:shadow-lg">
+                    <div class="bg-tdGreen-100 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-tdGreen-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-tdGreen-800 mb-2">Code Translation</h3>
+                    <p class="text-gray-600">Seamlessly translate code between different programming languages while preserving logic and optimizing for the target language.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-tdGreen-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-tdGreen-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Find answers to common questions about our platform.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-button w-full flex items-center justify-between px-6 py-4 text-left">
+                            <span class="font-medium text-tdGreen-800">How does the document intelligence feature work?</span>
+                            <svg class="faq-icon w-5 h-5 text-tdGreen-600 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="faq-content px-6 pb-4 hidden">
+                            <p class="text-gray-600">Our document intelligence uses Azure OpenAI to analyze and extract meaning from your documents. It understands context, identifies key information, and enables conversational interactions with your content.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-button w-full flex items-center justify-between px-6 py-4 text-left">
+                            <span class="font-medium text-tdGreen-800">What document formats are supported?</span>
+                            <svg class="faq-icon w-5 h-5 text-tdGreen-600 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="faq-content px-6 pb-4 hidden">
+                            <p class="text-gray-600">We support a wide range of document formats including PDF, Word (DOCX, DOC), Text files, Markdown, and more. Our system can process structured and unstructured content.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-button w-full flex items-center justify-between px-6 py-4 text-left">
+                            <span class="font-medium text-tdGreen-800">Is my data secure with KnowAI?</span>
+                            <svg class="faq-icon w-5 h-5 text-tdGreen-600 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="faq-content px-6 pb-4 hidden">
+                            <p class="text-gray-600">Yes, security is our top priority. We use enterprise-grade encryption, secure Azure infrastructure, and follow best practices for data protection. Your data is never used to train our models or shared with third parties.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-button w-full flex items-center justify-between px-6 py-4 text-left">
+                            <span class="font-medium text-tdGreen-800">What programming languages can be translated?</span>
+                            <svg class="faq-icon w-5 h-5 text-tdGreen-600 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="faq-content px-6 pb-4 hidden">
+                            <p class="text-gray-600">Our code translation feature supports most popular programming languages including Python, JavaScript, TypeScript, Java, C#, Go, Ruby, Rust, PHP, Swift, and Kotlin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-tdGreen-800 mb-4">Get in Touch</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions or want to learn more? We'd love to hear from you.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Contact Form -->
+                <div class="bg-tdGreen-50 rounded-lg p-8">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-tdGreen-800 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tdGreen-500 focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-tdGreen-800 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tdGreen-500 focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-tdGreen-800 mb-1">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tdGreen-500 focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-tdGreen-800 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tdGreen-500 focus:border-transparent" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-tdGreen-600 hover:bg-tdGreen-700 text-white px-6 py-3 rounded-md font-medium">Send Message</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="flex flex-col justify-center">
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-tdGreen-100 rounded-full p-3 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-tdGreen-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-tdGreen-800 mb-1">Phone</h3>
+                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-tdGreen-100 rounded-full p-3 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-tdGreen-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-tdGreen-800 mb-1">Email</h3>
+                                <p class="text-gray-600">info@knowai-example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-tdGreen-100 rounded-full p-3 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-tdGreen-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-tdGreen-800 mb-1">Address</h3>
+                                <p class="text-gray-600">123 AI Street, Tech City, CA 94107</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-tdGreen-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <span class="text-2xl font-semibold">
+                        Know<span class="text-tdGreen-300">AI</span>
+                    </span>
+                    <p class="mt-4 text-tdGreen-200">
+                        AI-powered document intelligence platform for enterprises.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Solutions</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">AI Assistant</a></li>
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">Code Translation</a></li>
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">Document Intelligence</a></li>
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">Knowledge Management</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">Documentation</a></li>
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">API Reference</a></li>
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">Contact</a></li>
+                        <li><a href="#" class="text-tdGreen-200 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-tdGreen-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-tdGreen-300">© 2023 KnowAI. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-tdGreen-300 hover:text-white">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-tdGreen-300 hover:text-white">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-tdGreen-300 hover:text-white">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+    
+    // FAQ accordion
+    const faqButtons = document.querySelectorAll('.faq-button');
+    
+    faqButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        });
+    });
+    
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const formDataObj = {};
+            formData.forEach((value, key) => { formDataObj[key] = value });
+            
+            alert('Form submitted! In a real application, this would send an email or store the message in a database.');
+            console.log('Form data:', formDataObj);
+            
+            contactForm.reset();
+        });
+    }
+</script>
+{% endblock %}
